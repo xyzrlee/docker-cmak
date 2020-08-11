@@ -1,0 +1,7 @@
+version: '3'
+services:
+    cmak:
+        build: 
+          context: .
+          dockerfile: Dockerfile
+        image: xyzrlee/cmak
