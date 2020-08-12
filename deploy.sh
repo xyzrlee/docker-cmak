@@ -8,10 +8,10 @@ then
     exit 0
 fi
 
-REPO_URL="https://github.com/ziahamza/webui-aria2.git"
-REPO_NAME="webui-aria2"
-REPO_VERSION_FILE_DIR=".."
-REPO_VERSION_FILE="webui-aria2.gitversion"
+REPO_URL="https://github.com/yahoo/CMAK.git"
+REPO_NAME="cmak"
+REPO_VERSION_FILE_DIR="."
+REPO_VERSION_FILE="build.sbt"
 
 REPO_ROOT="${HOME}/repo"
 REPO_VERSION_FILE_PATH="${REPO_ROOT}/${REPO_NAME}/${REPO_VERSION_FILE_DIR}/${REPO_VERSION_FILE}"
@@ -19,6 +19,7 @@ REPO_VERSION_FILE_PATH="${REPO_ROOT}/${REPO_NAME}/${REPO_VERSION_FILE_DIR}/${REP
 VERSION_ROOT="${HOME}/cache/version"
 VERSION_DIR="${VERSION_ROOT}/${REPO_NAME}"
 VERSION_FILE_PATH="${VERSION_DIR}/${REPO_VERSION_FILE}"
+VERSION_FILE_LINES=20
 
 echo "REPO_ROOT=${REPO_ROOT}"
 echo "VERSION_DIR=${VERSION_DIR}"
@@ -41,12 +42,12 @@ rm -rf ${REPO_ROOT}
 
 echo "new version file:"
 echo "------------------------------------"
-head -n 10 ${VERSION_FILE_PATH}.new
+head -n ${VERSION_FILE_LINES} ${VERSION_FILE_PATH}.new
 echo "------------------------------------"
 echo
 echo "old version file:"
 echo "------------------------------------"
-head -n 10 ${VERSION_FILE_PATH}
+head -n ${VERSION_FILE_LINES} ${VERSION_FILE_PATH}
 echo "------------------------------------"
 echo
 
