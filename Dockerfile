@@ -31,6 +31,7 @@ RUN set -ex \
  && mv `ls cmak*.zip` /cmak.zip \
  && cd / \
  && unzip cmak.zip \
+ && rm -f cmak.zip \
  && mv `ls -d cmak*` cmak \
  && ls -l /cmak
 
