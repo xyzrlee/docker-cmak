@@ -37,7 +37,7 @@ RUN set -ex \
 
 # ------------------------------------------------
 
-FROM alpine AS builder
+FROM alpine
 
 COPY --from=builder /cmak /cmak
 
