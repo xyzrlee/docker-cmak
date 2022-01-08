@@ -1,9 +1,8 @@
 #
-# Dockerfile for shadowsocks-libev
+# Dockerfile for CMAK
 #
 
-FROM alpine
-LABEL maintainer="Ricky Li <cnrickylee@gmail.com>"
+FROM alpine AS builder
 
 ADD entrypoint.sh /entrypoint.sh
 
@@ -32,12 +31,18 @@ RUN set -ex \
  && mv `ls cmak*.zip` /cmak.zip \
  && cd / \
  && unzip cmak.zip \
- && rm cmak.zip \
  && mv `ls -d cmak*` cmak \
- && ls -l /cmak \
- && rm -rf /tmp/repo \
- && apk del .build-deps \
- # Runtime dependencies setup
+ && ls -l /cmak
+
+# ------------------------------------------------
+
+FROM alpine AS builder
+
+COPY --from=builder /cmak /cmak
+
+ADD entrypoint.sh /entrypoint.sh
+
+RUN set -ex \
  && apk add --no-cache \
       openjdk11-jre \
       bash
