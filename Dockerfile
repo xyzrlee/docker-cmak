@@ -23,6 +23,7 @@ RUN set -ex \
       git \
       openjdk11-jdk \
       unzip \
+      bash \
  # Build & install
  && git clone https://github.com/yahoo/CMAK.git /tmp/repo/CMAK \
  && cd /tmp/repo/CMAK \
